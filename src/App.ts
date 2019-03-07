@@ -7,7 +7,7 @@ class App {
 
   public express: express.Application;
   public connectionString: String;
-  public accountSid: any; // Your Account SID from www.twilio.com/console
+  public accountSid: any;
   public authToken: any;
   public senderNumber: any;
   public client: any;

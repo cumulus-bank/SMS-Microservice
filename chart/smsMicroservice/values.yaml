@@ -36,7 +36,7 @@ image:
   
 hpa:
   metadata:
-    name: authsvcmicroservicehpa
+    name: smssvcmicroservicehpa
   spec:
     maxReplicas: 10
     minReplicas: 2
@@ -52,32 +52,21 @@ hpa:
     name: smssvc
 
 envOfConfigmaps:
-  envNODE_ENV:
-    name: NODE_ENV
+  envaccountSid:
+    name: accountSid
     configMapKeyRef:
-      name: cumulusbankauth
-      key: NODE_ENV
-  envDATABASE:
-    name: DATABASE
+      name: cumulusbanksms
+      key: accountSid
+  envauthToken:
+    name: authToken
     configMapKeyRef:
-      name: cumulusbankauth
-      key: DATABASE
-  envPORT:
-    name: PORT
+      name: cumulusbanksms
+      key: authToken
+  envsenderNumber:
+    name: senderNumber
     configMapKeyRef:
-      name: cumulusbankauth
-      key: PORT
-  envHOSTNAME:
-    name: HOSTNAME
-    configMapKeyRef:
-      name: cumulusbankauth
-      key: HOSTNAME
-  envPROTOCOL:
-    name: PROTOCOL
-    configMapKeyRef:
-      name: cumulusbankauth
-      key: PROTOCOL
-
+      name: cumulusbanksms
+      key: senderNumber
 
 service:
   serviceMetadata:
