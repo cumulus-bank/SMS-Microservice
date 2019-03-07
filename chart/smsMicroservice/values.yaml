@@ -1,8 +1,8 @@
 replicaCount: 2
 
 metadata:
- name: authsvc 
- label: authsvc
+ name: smssvc 
+ label: smssvc
 readinessProbe:
   path: /healthz
   port: 3003
@@ -17,8 +17,8 @@ livenessProbe:
   timeoutSeconds: 2
   periodSeconds: 10
 image:
-  name: authsvc
-  imageName: "mycluster.icp:8500/default/auth-microservice:0.0.1" 
+  name: smssvc
+  imageName: "mycluster.icp:8500/default/sms-microservice:0.0.1" 
   imagePullPolicy: Always
   ports:
     containerPort: 3003
@@ -49,24 +49,7 @@ hpa:
     memory:
       targetAverageUtilization: 50
   scaleTargetRef:  
-    name: authsvc
-
-envOfSecrets:
-  envUID:
-    name: UID
-    secretKeyRef:
-      name: cumulusbankauth
-      key: UID
-  envPASSWORD:
-    name: PASSWORD
-    secretKeyRef:
-      name: cumulusbankauth
-      key: PASSWORD
-  envSECRET:
-    name: SECRET
-    secretKeyRef:
-      name: cumulusbankauth
-      key: SECRET
+    name: smssvc
 
 envOfConfigmaps:
   envNODE_ENV:
@@ -98,14 +81,14 @@ envOfConfigmaps:
 
 service:
   serviceMetadata:
-    name: authsvc
+    name: smssvc
     labels:
-      app: authsvc
+      app: smssvc
   selector:
-    selectorName: authsvc
+    selectorName: smssvc
   servicePortConfiguration:
     protocol: TCP
-    name: authsvc
+    name: smssvc
     type: ClusterIP
     port: 3003
     targetPort: 3003
