@@ -15,9 +15,9 @@ class App {
     this.express = express();
     this.middleware();
     this.routes();
-    this.accountSid = process.env.accountSid;
-    this.authToken = process.env.authToken;
-    this.senderNumber = process.env.senderNumber;
+    this.accountSid = 'AC9aa55fd77004f4947be573d4cceab649';
+    this.authToken = '23dff5a6162067503454b0d73eb99843';
+    this.senderNumber = '+15125482057';
     this.client = twilio(this.accountSid, this.authToken);
   }
   private middleware(): void {
@@ -39,20 +39,18 @@ class App {
   }
   private routes(): void {
     let router = express.Router();
-    router.get("/send", (req, res, next) => {
-      this.client.messages
+    router.post("/send", (req, res, next) => {
+      let client = twilio(this.accountSid, this.authToken);
+      client.messages
         .create({
           body: req.body.message,
           to: req.body.reciever,
-          from: this.senderNumber // From a valid Twilio number
+          from: this.senderNumber
         })
         .then(message => {
           res.json({ msg: message.sid });
           console.log(message.sid);
         })
-        .error(msg => {
-          res.json({ msg: "something went wrong" });
-        });
     });
     router.get("/healthz", (req, res, next) => {
       res.send("success");
