@@ -2,7 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cumulusbanksms
-  namespace: default
+  labels:
+    app: {{ .Values.buildconfig.name }}
+  namespace: kubeapp
 data:
   accountSid: 'AC9aa55fd77004f4947be573d4cceab649'
   authToken: '23dff5a6162067503454b0d73eb99843'
