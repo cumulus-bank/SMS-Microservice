@@ -91,5 +91,5 @@ buildconfig:
   branch: "master"
   name: "smssvc"
   imagename: "smssvc:latest"
-  secret1: "secretkk"
-  secret2: "secretkk"
+  secret1: "secret909090"
+  secret2: "secret909090"
