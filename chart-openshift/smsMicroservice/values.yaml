@@ -93,3 +93,10 @@ buildconfig:
   imagename: "smssvc:latest"
   secret1: "secret909090"
   secret2: "secret909090"
+
+
+routes:
+  host: "smssvc-kubeapp.apps.9.30.210.207.nip.io"
+  targetPort: 3003
+  name: smssvc
+  weight: 100
