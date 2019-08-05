@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cumulusbanksms
+  labels:
+    app: "{{ .Values.buildconfig.name }}"
+  namespace: "{{ .Values.namespace }}"
+data:
+  accountSid: "{{ .Values.sms.accountsid }}"
+  authToken: "{{ .Values.sms.authtoken }}"
+  senderNumber: "{{ .Values.sms.sendernumber }}"

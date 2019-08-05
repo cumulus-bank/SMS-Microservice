@@ -1,0 +1,11 @@
+apiVersion: cumulusbank.com/v1alpha1
+kind: CumulusBankSmsSvc
+metadata:
+  name: sms-svc
+spec:
+  replicaCount: 3
+  namespace: "kubeapp"
+  sms:
+    accoundsid: "AC9aa55fd77004f4947be573d4cceab649"
+    authtoken: "23dff5a6162067503454b0d73eb99843"
+    sendernumber: "+15125482057"
