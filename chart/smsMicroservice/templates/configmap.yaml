@@ -4,6 +4,5 @@ metadata:
   name: cumulusbanksms
   namespace: default
 data:
-  accountSid: 'AC9aa55fd77004f4947be573d4cceab649'
-  authToken: '23dff5a6162067503454b0d73eb99843'
-  senderNumber: '+15125482057'
+  accountSid: 'xxx'
+  authToken: 'xxx'
