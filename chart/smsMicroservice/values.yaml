@@ -18,7 +18,7 @@ livenessProbe:
   periodSeconds: 10
 image:
   name: smssvc
-  imageName: "smssvc" 
+  imageName: "mycluster.icp:8500/default/sms-microservice:0.0.1" 
   imagePullPolicy: Always
   ports:
     containerPort: 3003
